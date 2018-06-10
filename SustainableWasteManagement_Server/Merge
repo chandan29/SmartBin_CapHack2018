@@ -1,0 +1,70 @@
+
+  var Connection = require('tedious').Connection;
+    var config = {
+        userName:'chandan' ,
+        password: 'India@123',
+        server: 'caphackathon.database.windows.net',
+        // If you are on Microsoft Azure, you need this:
+        options: {encrypt: true, database: 'capHack18'}
+    };
+    var connection = new Connection(config);
+    var Request = require('tedious').Request;
+    var TYPES = require('tedious').TYPES;
+
+    connection.on('connect', function(err) {
+    // If no error, then good to proceed.
+
+        console.log("Connected");
+        if(!err){
+          console.log("BEFORE EXEC STMT");
+          executeStatement1();
+          console.log("AFTER STMT");
+        }
+        else{
+          console.log(err);
+        }
+    });
+
+
+
+
+    function executeStatement() {
+        //request = new Request("CREATE TABLE Persons (PersonID int,LastName varchar(255),FirstName varchar(255),Address varchar(255),City varchar(255));", function(err) {
+        //request = new Request("Insert into Persons values (10,'A','b','Kaipn','k')", function(err) {
+        request = new Request("select * from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME='Persons'", function(err) {
+
+
+        if (err) {
+            console.log(err);}
+        });
+        var result = "";
+        request.on('done', function(rowCount, more) {
+        console.log("zala");
+        });
+        connection.execSql(request);
+    }
+
+
+    function executeStatement1() {
+        request = new Request("SELECT * from Persons;", function(err) {
+        if (err) {
+            console.log(err);}
+        });
+        var result = "";
+        request.on('row', function(columns) {
+            columns.forEach(function(column) {
+              if (column.value === null) {
+                console.log('NULL');
+              } else {
+                result+= column.value + " ";
+              }
+            });
+            console.log(result);
+            result ="";
+        });
+
+        request.on('done', function(rowCount, more) {
+        console.log(rowCount + ' rows returned');
+        });
+        connection.execSql(request);
+    }

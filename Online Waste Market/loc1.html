@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,700,800,900|Lato:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <!--  Meta  -->
+  <meta charset="UTF-8" />
+  <title>Location 1</title>
+  
+  <!--  Styles  -->
+  <link rel="stylesheet" href="styles/index.processed.css">
+</head>
+<body>
+  <div class = "header">
+    <p>Contact Us</p>
+    <p>Get Smart Bins</p>
+    <p>Home</p>
+    <p id ="logo">Smart Bin</p>
+  </div>
+
+  <h2 style="font-weight: 700;">Bin #4356</h2>
+  <div class="map-main"><iframe src="https://www.google.com/maps/d/u/1/embed?mid=12Y2_lzHZMdGBbd6hV9fmlTu4IlidY9fp" width="640" height="480"></iframe></div>
+  
+  <div class= "loc-info">
+    <h2>Materials collected</h2>
+    <p>Recyclables<br>Compost <br>Landfill </p>
+    
+    <div class="graph"></div>
+    
+    <div>
+     <h2>Current bids</h2>
+      <p>Plastic: $0.11 per pound<br>Compost: $13 per yard<sup>3</sup></p>
+    </div>
+  <div>
+    <div>
+      <p></p>
+    </div>
+    <div class= "bid-info">
+      <h2>Place a bid</h2>
+     <div class="dropdown">
+      <button onclick="myFunction()" class="dropbtn">Choose material</button>
+      <div id="myDropdown" class="dropdown-content">
+      <a href="#">Plastic</a>
+      <a href="#">Compost</a>
+      <a href="#">Electronics</a>
+      <a href="#">Batteries</a>
+  </div>
+       <div class="bid"> <input type="text"> </div>
+</div>
+    </div>
+  
+  <!-- Scripts -->
+  <script src="scripts/index.js"></script>
+</body>
+</html>
