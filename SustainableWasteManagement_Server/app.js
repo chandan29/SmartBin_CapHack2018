@@ -12,7 +12,7 @@ var express = require('express')
   var Connection = require('tedious').Connection;
     var config = {
         userName:'chandan' ,
-        password: 'India@123',
+        password: <Your Password>,
         server: 'caphackathon.database.windows.net',
         // If you are on Microsoft Azure, you need this:
         options: {encrypt: true, database: 'capHack18'}
